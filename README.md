@@ -1,4 +1,4 @@
-# Figma-Style MVP for Morphic Interview
+# Figma-Style MVP
 
 This repository starts as an architecture and execution plan for a Figma-style MVP built with Next.js.
 
