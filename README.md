@@ -196,7 +196,9 @@ type CollabClient = {
   destroy: () => void;
   getDoc: () => Y.Doc;
   getAwareness: () => Awareness;
-  onStatusChange: (cb: (status: "connecting" | "connected" | "disconnected") => void) => () => void;
+  onStatusChange: (
+    cb: (status: "connecting" | "connected" | "disconnected") => void,
+  ) => () => void;
 };
 ```
 
@@ -216,7 +218,7 @@ type CollabProviderFactoryOptions = {
 };
 
 type CollabProviderFactory = (
-  options: CollabProviderFactoryOptions
+  options: CollabProviderFactoryOptions,
 ) => CollabClient;
 ```
 

@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-16">
-        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-cyan-400">
+        <p className="mb-3 text-sm tracking-[0.2em] text-cyan-400 uppercase">
           MVP Foundation
         </p>
 
