@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 
-import { useCamera } from "../../features/editor/hooks/use-camera";
+import { sampleNodes } from "@/features/editor/data/sample-nodes";
+import { useCamera } from "@/features/editor/hooks/use-camera";
 
 export function CanvasViewport() {
   const { camera, panBy, zoomByDelta, resetCamera } = useCamera();
@@ -101,8 +102,34 @@ export function CanvasViewport() {
             backgroundPosition: "center center",
           }}
         >
-          <div className="absolute top-1/2 left-1/2 flex h-32 w-48 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 text-sm font-medium text-cyan-200">
-            World Origin Area
+          {sampleNodes.map((node) => (
+            <div
+              key={node.id}
+              className="absolute shadow-lg"
+              style={{
+                left: node.x,
+                top: node.y,
+                width: node.width,
+                height: node.height,
+                opacity: node.opacity,
+                transform: `rotate(${node.rotation}deg)`,
+                transformOrigin: "center center",
+                backgroundColor: node.fill,
+                borderColor: node.stroke,
+                borderWidth: node.strokeWidth,
+                borderRadius: node.borderRadius,
+              }}
+            >
+              <div className="flex h-full w-full items-end p-4">
+                <span className="rounded-md bg-black/20 px-2 py-1 text-xs font-medium text-white/90">
+                  {node.name}
+                </span>
+              </div>
+            </div>
+          ))}
+
+          <div className="absolute top-1/2 left-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-dashed border-cyan-400/40 text-xs tracking-[0.2em] text-cyan-300 uppercase">
+            Origin
           </div>
         </div>
       </div>
